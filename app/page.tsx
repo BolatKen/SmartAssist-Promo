@@ -15,7 +15,7 @@ import {
   ChevronDown,
   Star,
   Timer,
-  ArrowRight
+  ArrowRight,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
@@ -30,12 +30,12 @@ export default function Home() {
   const [timeLeft, setTimeLeft] = useState({
     hours: 3,
     minutes: 45,
-    seconds: 22
+    seconds: 22,
   });
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft(prev => {
+      setTimeLeft((prev) => {
         if (prev.seconds > 0) {
           return { ...prev, seconds: prev.seconds - 1 };
         } else if (prev.minutes > 0) {
@@ -52,14 +52,14 @@ export default function Home() {
 
   const handleContactClick = (platform: string) => {
     switch (platform) {
-      case 'telegram':
-        window.open('https://t.me/yourusername', '_blank');
+      case "telegram":
+        window.open("https://t.me/smartassistai", "_blank");
         break;
-      case 'whatsapp':
-        window.open('https://wa.me/77XXXXXXXXX', '_blank');
+      case "whatsapp":
+        window.open("https://wa.me/7706 671 2708", "_blank");
         break;
-      case 'email':
-        window.open('mailto:your@email.com', '_blank');
+      case "email":
+        window.open("mailto:smartassistgpt@gmail.com", "_blank");
         break;
     }
   };
@@ -67,7 +67,7 @@ export default function Home() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };
@@ -77,20 +77,23 @@ export default function Home() {
       name: "Анна Петрова",
       company: "Кафе «Уютное»",
       text: "Сделали отличный сайт для нашего кафе всего за 3 дня. Теперь у нас в 2 раза больше онлайн-заказов!",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150"
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150",
     },
     {
       name: "Марат Сулейменов",
       company: "Автосервис «Профи»",
       text: "GPT-бот помогает отвечать на вопросы клиентов 24/7. Очень доволен результатом и ценой.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150"
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150",
     },
     {
       name: "Елена Ким",
       company: "Салон красоты «Элегант»",
       text: "Спасибо за красивый сайт и бота для записи! Клиенты в восторге от простоты использования.",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=150"
-    }
+      image:
+        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=150",
+    },
   ];
 
   return (
@@ -99,27 +102,56 @@ export default function Home() {
       <header className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <div className="text-xl font-bold text-primary">WebStudio</div>
-            
+            <div className="text-xl font-bold text-primary">SmartAsisst</div>
+
             {/* Mobile Menu Button */}
             <button
               className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <button onClick={() => scrollToSection('services')} className="text-foreground/80 hover:text-primary transition">Услуги</button>
-              <button onClick={() => scrollToSection('portfolio')} className="text-foreground/80 hover:text-primary transition">Портфолио</button>
-              <button onClick={() => scrollToSection('pricing')} className="text-foreground/80 hover:text-primary transition">Цены</button>
-              <button onClick={() => scrollToSection('faq')} className="text-foreground/80 hover:text-primary transition">FAQ</button>
-              <button onClick={() => scrollToSection('contact')} className="text-foreground/80 hover:text-primary transition">Контакты</button>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="text-foreground/80 hover:text-primary transition"
+              >
+                Услуги
+              </button>
+              <button
+                onClick={() => scrollToSection("portfolio")}
+                className="text-foreground/80 hover:text-primary transition"
+              >
+                Портфолио
+              </button>
+              <button
+                onClick={() => scrollToSection("pricing")}
+                className="text-foreground/80 hover:text-primary transition"
+              >
+                Цены
+              </button>
+              <button
+                onClick={() => scrollToSection("faq")}
+                className="text-foreground/80 hover:text-primary transition"
+              >
+                FAQ
+              </button>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="text-foreground/80 hover:text-primary transition"
+              >
+                Контакты
+              </button>
               <Button
                 size="sm"
                 className="bg-primary hover:bg-primary/90"
-                onClick={() => handleContactClick('telegram')}
+                onClick={() => handleContactClick("telegram")}
               >
                 <MessageCircle className="mr-2 h-4 w-4" />
                 Связаться
@@ -131,11 +163,36 @@ export default function Home() {
           {isMenuOpen && (
             <nav className="md:hidden py-4 border-t">
               <div className="flex flex-col space-y-4">
-                <button onClick={() => scrollToSection('services')} className="text-foreground/80 hover:text-primary transition">Услуги</button>
-                <button onClick={() => scrollToSection('portfolio')} className="text-foreground/80 hover:text-primary transition">Портфолио</button>
-                <button onClick={() => scrollToSection('pricing')} className="text-foreground/80 hover:text-primary transition">Цены</button>
-                <button onClick={() => scrollToSection('faq')} className="text-foreground/80 hover:text-primary transition">FAQ</button>
-                <button onClick={() => scrollToSection('contact')} className="text-foreground/80 hover:text-primary transition">Контакты</button>
+                <button
+                  onClick={() => scrollToSection("services")}
+                  className="text-foreground/80 hover:text-primary transition"
+                >
+                  Услуги
+                </button>
+                <button
+                  onClick={() => scrollToSection("portfolio")}
+                  className="text-foreground/80 hover:text-primary transition"
+                >
+                  Портфолио
+                </button>
+                <button
+                  onClick={() => scrollToSection("pricing")}
+                  className="text-foreground/80 hover:text-primary transition"
+                >
+                  Цены
+                </button>
+                <button
+                  onClick={() => scrollToSection("faq")}
+                  className="text-foreground/80 hover:text-primary transition"
+                >
+                  FAQ
+                </button>
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="text-foreground/80 hover:text-primary transition"
+                >
+                  Контакты
+                </button>
               </div>
             </nav>
           )}
@@ -158,7 +215,7 @@ export default function Home() {
                   <Button
                     size="lg"
                     className="bg-primary hover:bg-primary/90"
-                    onClick={() => handleContactClick('telegram')}
+                    onClick={() => handleContactClick("telegram")}
                   >
                     <MessageCircle className="mr-2 h-5 w-5" />
                     Заказать в Telegram
@@ -166,31 +223,33 @@ export default function Home() {
                   <Button
                     size="lg"
                     variant="outline"
-                    onClick={() => scrollToSection('portfolio')}
+                    onClick={() => scrollToSection("portfolio")}
                   >
                     Смотреть портфолио
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </div>
-                
+
                 {/* Countdown Timer */}
                 <div className="mt-8 p-4 bg-accent/10 rounded-lg inline-block">
-                  <p className="text-accent font-semibold mb-2">🔥 Скидка 20% действует еще:</p>
+                  <p className="text-accent font-semibold mb-2">
+                    🔥 Скидка 20% действует еще:
+                  </p>
                   <div className="text-2xl font-mono">
-                    {String(timeLeft.hours).padStart(2, '0')}:
-                    {String(timeLeft.minutes).padStart(2, '0')}:
-                    {String(timeLeft.seconds).padStart(2, '0')}
+                    {String(timeLeft.hours).padStart(2, "0")}:
+                    {String(timeLeft.minutes).padStart(2, "0")}:
+                    {String(timeLeft.seconds).padStart(2, "0")}
                   </div>
                 </div>
               </div>
-              
+
               <div className="relative">
                 <div className="aspect-video rounded-lg overflow-hidden shadow-xl">
                   <iframe
                     width="100%"
                     height="100%"
                     src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Презентация WebStudio"
+                    title="Презентация SmartAsisst"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                     className="w-full h-full"
@@ -210,17 +269,23 @@ export default function Home() {
                 <Card className="p-6 bg-gradient-to-br from-primary/5 to-transparent border-primary/10">
                   <Zap className="h-10 w-10 mb-4 mx-auto text-primary" />
                   <h3 className="font-semibold mb-2">Быстро</h3>
-                  <p className="text-muted-foreground">Создаем проекты за 2-5 дней</p>
+                  <p className="text-muted-foreground">
+                    Создаем проекты за 2-5 дней
+                  </p>
                 </Card>
                 <Card className="p-6 bg-gradient-to-br from-accent/5 to-transparent border-accent/10">
                   <CheckCircle2 className="h-10 w-10 mb-4 mx-auto text-accent" />
                   <h3 className="font-semibold mb-2">Качественно</h3>
-                  <p className="text-muted-foreground">Современные технологии и дизайн</p>
+                  <p className="text-muted-foreground">
+                    Современные технологии и дизайн
+                  </p>
                 </Card>
                 <Card className="p-6 bg-gradient-to-br from-primary/5 to-transparent border-primary/10">
                   <Clock className="h-10 w-10 mb-4 mx-auto text-primary" />
                   <h3 className="font-semibold mb-2">Доступно</h3>
-                  <p className="text-muted-foreground">Честные цены без переплат</p>
+                  <p className="text-muted-foreground">
+                    Честные цены без переплат
+                  </p>
                 </Card>
               </div>
             </div>
@@ -230,7 +295,9 @@ export default function Home() {
         {/* Services Section */}
         <section id="services" className="py-20 bg-secondary/30">
           <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Наши услуги</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Наши услуги
+            </h2>
             <Tabs defaultValue="websites" className="max-w-4xl mx-auto">
               <TabsList className="grid w-full grid-cols-2 mb-8">
                 <TabsTrigger value="websites">Сайты</TabsTrigger>
@@ -240,29 +307,62 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <Card className="p-6 bg-gradient-to-br from-primary/5 to-transparent">
                     <h3 className="font-semibold mb-4">Сайт-визитка</h3>
-                    <p className="text-2xl font-bold text-primary mb-4">от 50 000₸</p>
+                    <p className="text-2xl font-bold text-primary mb-4">
+                      от 50 000₸
+                    </p>
                     <ul className="space-y-2">
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />До 5 страниц</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />Адаптивный дизайн</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />Базовое SEO</li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        До 5 страниц
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        Адаптивный дизайн
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        Базовое SEO
+                      </li>
                     </ul>
                   </Card>
                   <Card className="p-6 bg-gradient-to-br from-accent/5 to-transparent">
                     <h3 className="font-semibold mb-4">Лендинг</h3>
-                    <p className="text-2xl font-bold text-accent mb-4">от 80 000₸</p>
+                    <p className="text-2xl font-bold text-accent mb-4">
+                      от 80 000₸
+                    </p>
                     <ul className="space-y-2">
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-accent" />Продающая страница</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-accent" />Формы захвата</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-accent" />Аналитика</li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-accent" />
+                        Продающая страница
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-accent" />
+                        Формы захвата
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-accent" />
+                        Аналитика
+                      </li>
                     </ul>
                   </Card>
                   <Card className="p-6 bg-gradient-to-br from-primary/5 to-transparent">
                     <h3 className="font-semibold mb-4">Интернет-магазин</h3>
-                    <p className="text-2xl font-bold text-primary mb-4">от 150 000₸</p>
+                    <p className="text-2xl font-bold text-primary mb-4">
+                      от 150 000₸
+                    </p>
                     <ul className="space-y-2">
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />Каталог товаров</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />Корзина и оплата</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />CRM-интеграция</li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        Каталог товаров
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        Корзина и оплата
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        CRM-интеграция
+                      </li>
                     </ul>
                   </Card>
                 </div>
@@ -271,29 +371,62 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <Card className="p-6 bg-gradient-to-br from-primary/5 to-transparent">
                     <h3 className="font-semibold mb-4">Telegram бот</h3>
-                    <p className="text-2xl font-bold text-primary mb-4">от 60 000₸</p>
+                    <p className="text-2xl font-bold text-primary mb-4">
+                      от 60 000₸
+                    </p>
                     <ul className="space-y-2">
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />Автоответчик</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />Меню и команды</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />Уведомления</li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        Автоответчик
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        Меню и команды
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        Уведомления
+                      </li>
                     </ul>
                   </Card>
                   <Card className="p-6 bg-gradient-to-br from-accent/5 to-transparent">
                     <h3 className="font-semibold mb-4">GPT-бот</h3>
-                    <p className="text-2xl font-bold text-accent mb-4">от 100 000₸</p>
+                    <p className="text-2xl font-bold text-accent mb-4">
+                      от 100 000₸
+                    </p>
                     <ul className="space-y-2">
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-accent" />AI-ассистент</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-accent" />Обучение на данных</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-accent" />Интеграция API</li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-accent" />
+                        AI-ассистент
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-accent" />
+                        Обучение на данных
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-accent" />
+                        Интеграция API
+                      </li>
                     </ul>
                   </Card>
                   <Card className="p-6 bg-gradient-to-br from-primary/5 to-transparent">
                     <h3 className="font-semibold mb-4">WhatsApp бот</h3>
-                    <p className="text-2xl font-bold text-primary mb-4">от 80 000₸</p>
+                    <p className="text-2xl font-bold text-primary mb-4">
+                      от 80 000₸
+                    </p>
                     <ul className="space-y-2">
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />Бизнес-аккаунт</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />Рассылки</li>
-                      <li className="flex items-center"><CheckCircle2 className="h-4 w-4 mr-2 text-primary" />CRM-интеграция</li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        Бизнес-аккаунт
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        Рассылки
+                      </li>
+                      <li className="flex items-center">
+                        <CheckCircle2 className="h-4 w-4 mr-2 text-primary" />
+                        CRM-интеграция
+                      </li>
                     </ul>
                   </Card>
                 </div>
@@ -305,35 +438,45 @@ export default function Home() {
         {/* Process Section */}
         <section className="py-20 bg-background">
           <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Как мы работаем</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Как мы работаем
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-primary font-bold">1</span>
                 </div>
                 <h3 className="font-semibold mb-2">Заявка</h3>
-                <p className="text-muted-foreground">Вы оставляете заявку через Telegram или WhatsApp</p>
+                <p className="text-muted-foreground">
+                  Вы оставляете заявку через Telegram или WhatsApp
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-primary font-bold">2</span>
                 </div>
                 <h3 className="font-semibold mb-2">Обсуждение</h3>
-                <p className="text-muted-foreground">Уточняем детали и согласовываем техзадание</p>
+                <p className="text-muted-foreground">
+                  Уточняем детали и согласовываем техзадание
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-primary font-bold">3</span>
                 </div>
                 <h3 className="font-semibold mb-2">Разработка</h3>
-                <p className="text-muted-foreground">Создаем проект за 2-5 дней</p>
+                <p className="text-muted-foreground">
+                  Создаем проект за 2-5 дней
+                </p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <span className="text-primary font-bold">4</span>
                 </div>
                 <h3 className="font-semibold mb-2">Запуск</h3>
-                <p className="text-muted-foreground">Тестируем и запускаем готовый проект</p>
+                <p className="text-muted-foreground">
+                  Тестируем и запускаем готовый проект
+                </p>
               </div>
             </div>
           </div>
@@ -342,7 +485,9 @@ export default function Home() {
         {/* Portfolio Section */}
         <section id="portfolio" className="py-20">
           <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Наши работы</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Наши работы
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="overflow-hidden group">
                 <div className="relative">
@@ -357,7 +502,10 @@ export default function Home() {
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold mb-2">Сайт ресторана</h3>
-                  <p className="text-muted-foreground">Лендинг для локального ресторана с меню и онлайн-бронированием</p>
+                  <p className="text-muted-foreground">
+                    Лендинг для локального ресторана с меню и
+                    онлайн-бронированием
+                  </p>
                 </div>
               </Card>
               <Card className="overflow-hidden group">
@@ -373,7 +521,9 @@ export default function Home() {
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold mb-2">AI-бот для клиники</h3>
-                  <p className="text-muted-foreground">Чат-бот для записи на прием и консультаций</p>
+                  <p className="text-muted-foreground">
+                    Чат-бот для записи на прием и консультаций
+                  </p>
                 </div>
               </Card>
               <Card className="overflow-hidden group">
@@ -389,7 +539,9 @@ export default function Home() {
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold mb-2">Магазин одежды</h3>
-                  <p className="text-muted-foreground">Интернет-магазин с каталогом и системой заказов</p>
+                  <p className="text-muted-foreground">
+                    Интернет-магазин с каталогом и системой заказов
+                  </p>
                 </div>
               </Card>
             </div>
@@ -399,7 +551,9 @@ export default function Home() {
         {/* Testimonials Section */}
         <section className="py-20 bg-secondary/30">
           <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Отзывы клиентов</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Отзывы клиентов
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
                 <Card key={index} className="p-6">
@@ -411,12 +565,17 @@ export default function Home() {
                     />
                     <div>
                       <h3 className="font-semibold">{testimonial.name}</h3>
-                      <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.company}
+                      </p>
                     </div>
                   </div>
                   <div className="flex mb-4">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                      <Star
+                        key={i}
+                        className="w-4 h-4 text-yellow-400 fill-current"
+                      />
                     ))}
                   </div>
                   <p className="text-muted-foreground">{testimonial.text}</p>
@@ -429,31 +588,49 @@ export default function Home() {
         {/* FAQ Section */}
         <section id="faq" className="py-20">
           <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Частые вопросы</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Частые вопросы
+            </h2>
             <div className="max-w-3xl mx-auto">
               <Accordion type="single" collapsible>
                 <AccordionItem value="item-1">
-                  <AccordionTrigger>Сколько времени занимает создание сайта/бота?</AccordionTrigger>
+                  <AccordionTrigger>
+                    Сколько времени занимает создание сайта/бота?
+                  </AccordionTrigger>
                   <AccordionContent>
-                    Обычно мы создаем проекты за 2-5 рабочих дней. Точные сроки зависят от сложности проекта и согласовываются индивидуально.
+                    Обычно мы создаем проекты за 2-5 рабочих дней. Точные сроки
+                    зависят от сложности проекта и согласовываются
+                    индивидуально.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
-                  <AccordionTrigger>Какая примерная стоимость?</AccordionTrigger>
+                  <AccordionTrigger>
+                    Какая примерная стоимость?
+                  </AccordionTrigger>
                   <AccordionContent>
-                    Цены начинаются от 50 000₸ за сайт-визитку и от 60 000₸ за бота. Финальная стоимость зависит от функционала и сложности проекта.
+                    Цены начинаются от 50 000₸ за сайт-визитку и от 60 000₸ за
+                    бота. Финальная стоимость зависит от функционала и сложности
+                    проекта.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
-                  <AccordionTrigger>Можно ли сделать индивидуальный дизайн?</AccordionTrigger>
+                  <AccordionTrigger>
+                    Можно ли сделать индивидуальный дизайн?
+                  </AccordionTrigger>
                   <AccordionContent>
-                    Да, мы создаем уникальный дизайн под ваш бренд и пожелания. Также у нас есть готовые шаблоны, которые можно адаптировать.
+                    Да, мы создаем уникальный дизайн под ваш бренд и пожелания.
+                    Также у нас есть готовые шаблоны, которые можно
+                    адаптировать.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-4">
-                  <AccordionTrigger>Как происходит оплата и поддержка?</AccordionTrigger>
+                  <AccordionTrigger>
+                    Как происходит оплата и поддержка?
+                  </AccordionTrigger>
                   <AccordionContent>
-                    Работаем по предоплате 50%. После запуска проекта предоставляем бесплатную поддержку в течение месяца и помогаем с размещением.
+                    Работаем по предоплате 50%. После запуска проекта
+                    предоставляем бесплатную поддержку в течение месяца и
+                    помогаем с размещением.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -469,7 +646,7 @@ export default function Home() {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => handleContactClick('telegram')}
+                onClick={() => handleContactClick("telegram")}
                 className="bg-white hover:bg-primary/5"
               >
                 <MessageCircle className="mr-2 h-5 w-5" />
@@ -478,7 +655,7 @@ export default function Home() {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => handleContactClick('whatsapp')}
+                onClick={() => handleContactClick("whatsapp")}
                 className="bg-white hover:bg-primary/5"
               >
                 <Phone className="mr-2 h-5 w-5" />
@@ -487,7 +664,7 @@ export default function Home() {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => handleContactClick('email')}
+                onClick={() => handleContactClick("email")}
                 className="bg-white hover:bg-primary/5"
               >
                 <Mail className="mr-2 h-5 w-5" />
@@ -502,7 +679,7 @@ export default function Home() {
           <div className="container mx-auto px-4 py-12">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
-                <h3 className="text-xl font-bold mb-4">WebStudio</h3>
+                <h3 className="text-xl font-bold mb-4">SmartAsisst</h3>
                 <p className="text-primary-foreground/80">
                   Создаем современные сайты и чат-боты для вашего бизнеса
                 </p>
@@ -510,17 +687,50 @@ export default function Home() {
               <div>
                 <h4 className="font-semibold mb-4">Услуги</h4>
                 <ul className="space-y-2">
-                  <li><button onClick={() => scrollToSection('services')} className="hover:text-white/80">Сайты</button></li>
-                  <li><button onClick={() => scrollToSection('services')} className="hover:text-white/80">Боты</button></li>
-                  <li><button onClick={() => scrollToSection('services')} className="hover:text-white/80">GPT-интеграции</button></li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection("services")}
+                      className="hover:text-white/80"
+                    >
+                      Сайты
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection("services")}
+                      className="hover:text-white/80"
+                    >
+                      Боты
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => scrollToSection("services")}
+                      className="hover:text-white/80"
+                    >
+                      GPT-интеграции
+                    </button>
+                  </li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-semibold mb-4">Информация</h4>
                 <ul className="space-y-2">
-                  <li><a href="#" className="hover:text-white/80">О нас</a></li>
-                  <li><a href="#" className="hover:text-white/80">Портфолио</a></li>
-                  <li><a href="#" className="hover:text-white/80">Контакты</a></li>
+                  <li>
+                    <a href="#" className="hover:text-white/80">
+                      О нас
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-white/80">
+                      Портфолио
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" className="hover:text-white/80">
+                      Контакты
+                    </a>
+                  </li>
                 </ul>
               </div>
               <div>
@@ -528,7 +738,7 @@ export default function Home() {
                 <ul className="space-y-2">
                   <li>
                     <button
-                      onClick={() => handleContactClick('telegram')}
+                      onClick={() => handleContactClick("telegram")}
                       className="hover:text-white/80 flex items-center"
                     >
                       <MessageCircle className="h-4 w-4 mr-2" />
@@ -537,7 +747,7 @@ export default function Home() {
                   </li>
                   <li>
                     <button
-                      onClick={() => handleContactClick('whatsapp')}
+                      onClick={() => handleContactClick("whatsapp")}
                       className="hover:text-white/80 flex items-center"
                     >
                       <Phone className="h-4 w-4 mr-2" />
@@ -546,7 +756,7 @@ export default function Home() {
                   </li>
                   <li>
                     <button
-                      onClick={() => handleContactClick('email')}
+                      onClick={() => handleContactClick("email")}
                       className="hover:text-white/80 flex items-center"
                     >
                       <Mail className="h-4 w-4 mr-2" />
@@ -557,7 +767,7 @@ export default function Home() {
               </div>
             </div>
             <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/60">
-              <p>© 2024 WebStudio. Все права защищены.</p>
+              <p>© 2024 SmartAsisst. Все права защищены.</p>
             </div>
           </div>
         </footer>
