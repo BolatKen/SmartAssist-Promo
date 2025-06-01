@@ -24,11 +24,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [timeLeft, setTimeLeft] = useState({
-    hours: 3,
+    hours: 13,
     minutes: 45,
     seconds: 22,
   });
@@ -56,7 +58,7 @@ export default function Home() {
         window.open("https://t.me/smartassistai", "_blank");
         break;
       case "whatsapp":
-        window.open("https://wa.me/7706 671 2708", "_blank");
+        window.open("https://wa.me/77066712708", "_blank");
         break;
       case "email":
         window.open("mailto:smartassistgpt@gmail.com", "_blank");
@@ -94,7 +96,7 @@ export default function Home() {
       image:
         "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=150",
     },
-  ];
+  ]
 
   return (
     <>
@@ -209,7 +211,7 @@ export default function Home() {
                   Быстрые и недорогие сайты и ИИ-боты для бизнеса
                 </h1>
                 <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                  Простые решения для малого бизнеса — от 50 000₸
+                  Простые решения для малого бизнеса — от <span className="line-through opacity-50">90 000₸</span>50 000₸
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
@@ -308,7 +310,7 @@ export default function Home() {
                   <Card className="p-6 bg-gradient-to-br from-primary/5 to-transparent">
                     <h3 className="font-semibold mb-4">Сайт-визитка</h3>
                     <p className="text-2xl font-bold text-primary mb-4">
-                      от 50 000₸
+                      <span className="line-through opacity-50">90 000₸</span> <br /> от 50 000₸
                     </p>
                     <ul className="space-y-2">
                       <li className="flex items-center">
@@ -328,7 +330,7 @@ export default function Home() {
                   <Card className="p-6 bg-gradient-to-br from-accent/5 to-transparent">
                     <h3 className="font-semibold mb-4">Лендинг</h3>
                     <p className="text-2xl font-bold text-accent mb-4">
-                      от 80 000₸
+                      <span className="line-through opacity-50">150 000₸</span> <br />от 80 000₸
                     </p>
                     <ul className="space-y-2">
                       <li className="flex items-center">
@@ -348,6 +350,7 @@ export default function Home() {
                   <Card className="p-6 bg-gradient-to-br from-primary/5 to-transparent">
                     <h3 className="font-semibold mb-4">Интернет-магазин</h3>
                     <p className="text-2xl font-bold text-primary mb-4">
+                      <span className="line-through opacity-50">300 000₸</span><br />
                       от 150 000₸
                     </p>
                     <ul className="space-y-2">
@@ -490,60 +493,27 @@ export default function Home() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <Card className="overflow-hidden group">
-                <div className="relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1517292987719-0369a794ec0f?auto=format&fit=crop&w=800"
-                    alt="Проект 1"
-                    className="w-full h-48 object-cover transition group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                    <p className="text-white">Подробнее</p>
+                <Link href="https://smartassist.kz">
+                  <div className="relative h-48">
+                    <Image
+                      src="/portfolio/smartassist.png"
+                      alt="Проект 1"
+                      className="object-cover transition group-hover:scale-105"
+                      fill
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
+                      <p className="text-white">Подробнее</p>
+                    </div>
                   </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold mb-2">Сайт ресторана</h3>
-                  <p className="text-muted-foreground">
-                    Лендинг для локального ресторана с меню и
-                    онлайн-бронированием
-                  </p>
-                </div>
-              </Card>
-              <Card className="overflow-hidden group">
-                <div className="relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800"
-                    alt="Проект 2"
-                    className="w-full h-48 object-cover transition group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                    <p className="text-white">Подробнее</p>
+                  <div className="p-4">
+                    <h3 className="font-semibold mb-2">Сайт для SaaS компании</h3>
+                    <p className="text-muted-foreground">
+                      Лендинг для SaaS компании по созданию AI-ассистентов
+                    </p>
                   </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold mb-2">AI-бот для клиники</h3>
-                  <p className="text-muted-foreground">
-                    Чат-бот для записи на прием и консультаций
-                  </p>
-                </div>
+                </Link>
               </Card>
-              <Card className="overflow-hidden group">
-                <div className="relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800"
-                    alt="Проект 3"
-                    className="w-full h-48 object-cover transition group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-4">
-                    <p className="text-white">Подробнее</p>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-semibold mb-2">Магазин одежды</h3>
-                  <p className="text-muted-foreground">
-                    Интернет-магазин с каталогом и системой заказов
-                  </p>
-                </div>
-              </Card>
+              
             </div>
           </div>
         </section>
