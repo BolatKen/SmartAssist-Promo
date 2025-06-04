@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/accordion";
 import Image from "next/image";
 import Link from "next/link";
+import Portfolio from "@/components/Portfolio";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -485,7 +486,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Portfolio Section */}
+        {/* Portfolio Section
         <section id="portfolio" className="py-20">
           <div className="container px-4 mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12">
@@ -516,7 +517,10 @@ export default function Home() {
               
             </div>
           </div>
-        </section>
+        </section> */}
+
+
+        <Portfolio />
 
         {/* Testimonials Section */}
         <section className="py-20 bg-secondary/30">
