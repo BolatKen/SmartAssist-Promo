@@ -24,9 +24,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Image from "next/image";
-import Link from "next/link";
+// import Image from "next/image";
+// import Link from "next/link";
 import Portfolio from "@/components/Portfolio";
+
+import PortfolioCard from "@/components/PortfolioCard";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -74,30 +76,43 @@ export default function Home() {
     }
     setIsMenuOpen(false);
   };
-
   const testimonials = [
     {
       name: "Анна Петрова",
-      company: "Кафе «Уютное»",
-      text: "Сделали отличный сайт для нашего кафе всего за 3 дня. Теперь у нас в 2 раза больше онлайн-заказов!",
+      company: "Кафе «Уютное», Казань",
+      text: "Мы обратились за лендингом для доставки — сделали за 3 дня, подключили Telegram-бота и приём онлайн-оплаты. Уже на первой неделе количество заказов выросло почти вдвое. Теперь думаю над второй страницей с меню.",
       image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOR2XVS8tMwmrvrh4gcqd1zK18l_pNIbhBQ&s",
     },
     {
       name: "Марат Сулейменов",
-      company: "Автосервис «Профи»",
-      text: "GPT-бот помогает отвечать на вопросы клиентов 24/7. Очень доволен результатом и ценой.",
+      company: "СТО «Профи», Алматы",
+      text: "Ребята сделали простой, но удобный сайт и бота для Telegram — теперь клиенты могут записаться сами, а не звонить. Это экономит мне минимум 2 часа в день. Спасибо за скорость и поддержку!",
       image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150",
+        "https://www.ultimatebeaver.com/wp-content/uploads/bb-plugin/cache/photo-gallery-img-02-circle.jpg",
     },
     {
       name: "Елена Ким",
-      company: "Салон красоты «Элегант»",
-      text: "Спасибо за красивый сайт и бота для записи! Клиенты в восторге от простоты использования.",
+      company: "Салон «Элегант», Владивосток",
+      text: "Очень довольна — сайт стильный, всё работает стабильно. Больше не нужно вести запись вручную — бот сразу добавляет данные в таблицу. Работает уже месяц, клиенты в восторге!",
       image:
-        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=150",
+        "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=150",
     },
-  ]
+    {
+      name: "Роман Гринь",
+      company: "Мастерская мебели «WoodCraft», Екатеринбург",
+      text: "Нам сделали сайт-портфолио с формой расчёта стоимости. Теперь заявки приходят прямо на почту. Раньше работали только через Instagram, а сейчас есть отдельный сайт — клиенты стали доверять больше.",
+      image:
+        "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=150",
+    },
+    {
+      name: "Динара Ахметова",
+      company: "Онлайн-курсы английского",
+      text: "Нужна была посадочная страница для запуска курса — всё сделали под ключ за 5 дней, включая домен, SEO и подключение к Tilda и Telegram. Получилось круто и быстро. Планируем запуск второй группы!",
+      image:
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150",
+    },
+  ];
 
   return (
     <>
@@ -212,7 +227,9 @@ export default function Home() {
                   Быстрые и недорогие сайты и ИИ-боты для бизнеса
                 </h1>
                 <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                  Простые решения для малого бизнеса — от <span className="line-through opacity-50">90 000₸</span>50 000₸
+                  Простые решения для малого бизнеса — от{" "}
+                  <span className="line-through opacity-50">90 000₸</span>50
+                  000₸
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button
@@ -251,7 +268,7 @@ export default function Home() {
                   <iframe
                     width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    src="https://www.youtube.com/embed/iApk6QulrlQ?si=krHEpZcwWBm-RjpT"
                     title="Презентация SmartAsisst"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -311,7 +328,8 @@ export default function Home() {
                   <Card className="p-6 bg-gradient-to-br from-primary/5 to-transparent">
                     <h3 className="font-semibold mb-4">Сайт-визитка</h3>
                     <p className="text-2xl font-bold text-primary mb-4">
-                      <span className="line-through opacity-50">90 000₸</span> <br /> от 50 000₸
+                      <span className="line-through opacity-50">90 000₸</span>{" "}
+                      <br /> от 50 000₸
                     </p>
                     <ul className="space-y-2">
                       <li className="flex items-center">
@@ -331,7 +349,9 @@ export default function Home() {
                   <Card className="p-6 bg-gradient-to-br from-accent/5 to-transparent">
                     <h3 className="font-semibold mb-4">Лендинг</h3>
                     <p className="text-2xl font-bold text-accent mb-4">
-                      <span className="line-through opacity-50">150 000₸</span> <br />от 80 000₸
+                      <span className="line-through opacity-50">150 000₸</span>{" "}
+                      <br />
+                      от 80 000₸
                     </p>
                     <ul className="space-y-2">
                       <li className="flex items-center">
@@ -351,7 +371,8 @@ export default function Home() {
                   <Card className="p-6 bg-gradient-to-br from-primary/5 to-transparent">
                     <h3 className="font-semibold mb-4">Интернет-магазин</h3>
                     <p className="text-2xl font-bold text-primary mb-4">
-                      <span className="line-through opacity-50">300 000₸</span><br />
+                      <span className="line-through opacity-50">300 000₸</span>
+                      <br />
                       от 150 000₸
                     </p>
                     <ul className="space-y-2">
@@ -519,9 +540,28 @@ export default function Home() {
           </div>
         </section> */}
 
+        {/* <Portfolio /> */}
+                    <section className="px-4 py-12">
+      <h2 className="text-3xl font-bold text-center mb-10">Наши работы</h2>
 
-        <Portfolio />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <PortfolioCard
+          image="/portfolio/smartassist-1.png"
+          logo="https://static.tildacdn.pro/tild3939-3863-4361-b337-626539343166/logo-removebg-SILK_1.png"
+          title="SMART ASSIST"
+          description="Современный лендинг для агентства цифрового маркетинга."
+          link="https://ai.smartassist.kz/"
+        />
 
+        <PortfolioCard
+          image="/portfolio/bolat&co-1.jpeg"
+          logo="https://static.tildacdn.pro/tild3939-3863-4361-b337-626539343166/logo-removebg-SILK_1.png"
+          title="Интеграция Amo-CRM для вашего бизнеса"
+          description="Лендинг для SaaS-компании с упором на UI/UX."
+          link="https://crmbolat.kz/"
+        />
+      </div>
+    </section>
         {/* Testimonials Section */}
         <section className="py-20 bg-secondary/30">
           <div className="container px-4 mx-auto">
